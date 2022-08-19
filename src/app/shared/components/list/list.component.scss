@@ -1,0 +1,28 @@
+:host ::ng-deep {
+  .p-carousel .p-carousel-indicators{
+    display: none!important;
+  }
+}
+
+.list-content-grid{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  justify-items: center;
+  grid-gap: 15px;
+}
+
+.list-loader{
+  position: relative;
+  height: 100vh;
+
+    img{
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+}

@@ -1,0 +1,27 @@
+<div class="list container">
+  <div class="list-slider" *ngIf="(posters$ | async) as posterList">
+    <p-carousel [value]="posterList.posters" [numVisible]="1" [numScroll]="1" [autoplayInterval]="7000"
+                [circular]="true">
+      <ng-template let-poster pTemplate="item">
+        <app-movie-item [movieData]="poster" [isPoster]="true" [pageType]="pageType"></app-movie-item>
+      </ng-template>
+    </p-carousel>
+  </div>
+  <div class="list-content" *ngIf="(list$ | async) as list">
+
+    <div *ngIf="(isFetching$ | async); else grid" class="list-loader">
+      <img src="/assets/images/loader.svg">
+    </div>
+    <ng-template #grid>
+      <div class="list-content-grid" >
+        <div *ngFor="let item of list.data">
+          <app-movie-item [movieData]="item" [pageType]="pageType"></app-movie-item>
+        </div>
+      </div>
+    </ng-template>
+
+    <p-paginator [totalRecords]="500" [rows]="list.data.length" (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+</div>
+
+

@@ -1,0 +1,22 @@
+<div class="movie-item" [routerLink]="['/item-page/', pageType, movieData.id]" >
+  <div class="movie-wrapper-img">
+    <img  *ngIf="isPoster && movieData.backdrop_path" [ngClass]="{'poster': isPoster}"
+         src="https://image.tmdb.org/t/p/original/{{movieData.backdrop_path}}">
+    <img  *ngIf="!isPoster" class="movie-img"
+         src="https://image.tmdb.org/t/p/original/{{movieData.poster_path}}">
+  </div>
+
+  <div class="movie-content">
+    <div class="movie-content-top">
+      <p class="movie-title">{{movieData.title}}{{movieData.name}}</p>
+<!--      <div class="movie-rate" *ngIf="!isPoster">-->
+<!--        <p-rating [stars]="10" [(ngModel)]="movieData.vote_average" [cancel]="false"></p-rating>-->
+<!--      </div>-->
+    </div>
+    <div class="movie-content-bottom">
+      <button pButton type="button" label="WatchList"  icon="pi pi-plus-circle" class="btn-white"
+              [ngClass]="{'small': !isPoster}" (click)="addToWatchList(movieData.id)"></button>
+      <button pButton type="button" label="Watch now" ></button>
+    </div>
+  </div>
+</div>

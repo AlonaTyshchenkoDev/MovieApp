@@ -1,0 +1,24 @@
+<div class="serial container" *ngIf="serialData">
+  <div class="serial-poster">
+    <img src="https://image.tmdb.org/t/p/original/{{serialData.backdrop_path}}" class="serial-poster-img">
+    <p class="serial-title">{{serialData.name}}</p>
+  </div>
+  <div class="serial-content">
+    <div class="serial-img">
+      <img src="https://image.tmdb.org/t/p/original/{{serialData.poster_path}}">
+    </div>
+    <div class="serial-content-description" *ngIf="serialData">
+      <p class="tagline">{{serialData.tagline}}</p>
+      <p class="overview">{{serialData.overview}}</p>
+      <p class="description-white">Genres</p>
+      <p class="description-data genres" *ngFor="let genre of serialData.genres">{{genre.name}}</p>
+
+    </div>
+  </div>
+
+<!--  <div class="serial-seasons">-->
+<!--    <div *ngFor="let season of serialData.seasons">-->
+<!--      <img src="https://image.tmdb.org/t/p/original/{{season.poster_path}}">-->
+<!--    </div>-->
+<!--  </div>-->
+</div>

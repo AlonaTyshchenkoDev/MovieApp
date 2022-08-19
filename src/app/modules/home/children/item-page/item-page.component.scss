@@ -1,0 +1,59 @@
+@import "src/styles/colors";
+
+.movie{
+
+  &-poster{
+    display: flex;
+    margin-bottom: 100px;
+  }
+
+  &-poster-img{
+    width: 100%;
+    border-radius: 15px;
+    max-height: 610px;
+  }
+
+  &-title{
+    position: absolute;
+    margin-top: 550px;
+    margin-left: 70px;
+    background-color: rgba($gray, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 28px;
+    font-weight: bolder;
+  }
+}
+
+.movie-content{
+  display: flex;
+  justify-content: space-between;
+
+  img{
+    width: 100%;
+    padding: 0 70px;
+    border-radius: 15px;
+  }
+
+  &-description{
+    width: 100%;
+  }
+
+  &-overview{
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: lighter;
+    letter-spacing: 1.5px;
+  }
+}
+
+.description-white{
+  color: rgba($white,0.6);
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.tagline{
+  font-weight: bolder;
+  color: rgba($white, 1.5)
+}

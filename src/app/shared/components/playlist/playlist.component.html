@@ -1,0 +1,16 @@
+<div class="playlist container">
+  <div class="playlist-wrapper">
+    <div class="list" *ngFor="let movie of moviePlaylist">
+      <div class="list-item">
+
+        <div class="list-item-poster">
+          <img src="{{movie.poster_path}}">
+        </div>
+        <div class="list-item-content">
+          <p class="item-title">{{movie.title}}{{movie.name}}</p>
+          <p class="item-overview">{{movie.overview}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

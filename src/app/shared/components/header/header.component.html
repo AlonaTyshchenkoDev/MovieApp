@@ -1,0 +1,36 @@
+
+<header class="header container">
+  <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+    <app-sidebar></app-sidebar>
+  </p-sidebar>
+  <div class="header-nav">
+    <p (click)="visibleSidebar = true" class="header-nav-btn">Movie App</p>
+    <p-tabMenu [model]="items"></p-tabMenu>
+    <div class="header-search" [formGroup]="searchGroup" #search>
+          <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText formControlName="search" placeholder="Search"
+            (keyup)="op.toggle($event)">
+    </span>
+      <p-overlayPanel #op [showCloseIcon]="true" [appendTo]="search" [style]="{width: '450px'}" >
+        <ng-template pTemplate>
+          <p-table [value]="foundMovies" selectionMode="single" (onRowSelect)="checkSelectedMovie($event)"
+                   [paginator]="true" [rows]="5" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Title</th>
+                <th>Poster</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-movie>
+              <tr [pSelectableRow]="rowData">
+                <td>{{movie.title}}{{movie.name}}</td>
+                <td><img src="https://image.tmdb.org/t/p/original//{{movie.poster_path}}" class="movie-found-image" /></td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </ng-template>
+      </p-overlayPanel>
+    </div>
+  </div>
+</header>
