@@ -1,0 +1,12 @@
+<div class="auth container">
+    <div class="auth-img">
+      <img src="assets/images/loginImg.png">
+    </div>
+    <div class="auth-form" [formGroup]="loginForm">
+      <h1 class="auth-form-title">Login</h1>
+      <input type="text" pInputText formControlName="username" placeholder="Username">
+      <input type="password" pInputText formControlName="password" placeholder="Password">
+      <button pButton type="submit" label="Login" (click)="loginUser()"
+              [disabled]="loginForm.invalid"></button>
+    </div>
+</div>

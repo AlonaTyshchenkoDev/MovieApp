@@ -6,13 +6,14 @@ import { LibraryComponent } from './component/library.component';
 import { WatchListComponent } from './children/watch-list/watch-list.component';
 import { PlaylistsComponent } from './children/playlists/playlists.component';
 import { CompletedListComponent } from './children/completed-list/completed-list.component';
+import { EListType } from '../../shared/enums';
 
 const routes: Routes = [{
   path: '',
   component: LibraryComponent,
   children: [
     {
-      path: 'watchList',
+      path: EListType.Watchlist,
       component: WatchListComponent
     },
     {

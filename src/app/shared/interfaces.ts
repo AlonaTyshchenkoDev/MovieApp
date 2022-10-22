@@ -97,3 +97,7 @@ export interface IExtendedSerial extends IMovie {
   }[]
 }
 
+export interface IResponseItem {
+  status_code: number,
+  status_message: string
+}

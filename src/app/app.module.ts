@@ -1,4 +1,5 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,10 +13,11 @@ import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MovieService } from './services/movie.service';
 import { MoviesEffects } from './reducers/movies/movies.effects';
-import { HttpClientModule } from '@angular/common/http';
 import { SerialsEffects } from './reducers/serials/serials.effects';
 import { initializeApp } from '../providers/initialize.functions';
 import { PostersEffects } from './reducers/posters/posters.effects';
+import { AuthEffects } from './reducers/auth/auth.effects';
+import { LibraryEffects } from './reducers/library/library.effects';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { PostersEffects } from './reducers/posters/posters.effects';
     HttpClientModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([MoviesEffects, SerialsEffects, PostersEffects])
+    EffectsModule.forRoot([MoviesEffects, SerialsEffects, PostersEffects, LibraryEffects, AuthEffects])
   ],
   providers: [
     {

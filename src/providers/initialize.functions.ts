@@ -10,6 +10,7 @@ import { LoadMoviesAction} from '../app/reducers/movies/movies.action';
 import { delay } from 'rxjs';
 import { LoadSerialsAction } from '../app/reducers/serials/serials.actions';
 import { LoadPostersAction } from '../app/reducers/posters/posters.action';
+import { CreateTokenAction } from '../app/reducers/auth/auth.actions';
 
 export function initializeApp(movieService: MovieService, store: Store<IState>): () => Promise<boolean> {
   return () => new Promise(async (resolve, reject) => {
@@ -43,5 +44,6 @@ export function initializeApp(movieService: MovieService, store: Store<IState>):
           resolve(true);
         }
       });
+    store.dispatch(new CreateTokenAction);
   })
 }

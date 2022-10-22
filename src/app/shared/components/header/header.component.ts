@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public visibleSidebar: boolean = false;
   public destroy$: Subject<void> = new Subject<void>();
-  public items: MenuItem[] = CHeaderNavItems;
   public searchGroup: FormGroup;
   public searchValue: string = '';
   public foundMovies: IMovie[];

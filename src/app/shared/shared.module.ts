@@ -14,6 +14,8 @@ import { PaginatorModule } from 'primeng/paginator';
 import { MenuModule } from 'primeng/menu';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { TableModule } from 'primeng/table';
+import { PasswordModule } from 'primeng/password';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -22,6 +24,8 @@ import { LoadImageDirective } from '../directives/load-image.directive';
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DataViewModule } from 'primeng/dataview';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,11 @@ import { FooterComponent } from './components/footer/footer.component';
     MenuModule,
     OverlayPanelModule,
     TableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PasswordModule,
+    SelectButtonModule,
+    DataViewModule,
+    ToggleButtonModule
     ],
   exports: [
     SidebarComponent,
@@ -66,6 +74,11 @@ import { FooterComponent } from './components/footer/footer.component';
     ListComponent,
     PaginatorModule,
     LoadImageDirective,
+    ReactiveFormsModule,
+    PasswordModule,
+    SelectButtonModule,
+    DataViewModule,
+    ToggleButtonModule
   ]
 })
 export class SharedModule { }

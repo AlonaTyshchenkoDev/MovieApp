@@ -19,21 +19,12 @@
 
   p:hover{
     color: rgba($green, 0.8);
-    //border-bottom: 1px solid rgba($green, 0.8);
   }
 }
 
 .header-nav-btn:hover{
   cursor: pointer;
   color: rgba($green, 0.8);
-}
-
-.p-inputtext:hover{
-  border-color: rgba($green, 0.8)!important;
-}
-
-.p-inputtext:focus{
-  box-shadow: 0 0 0 1px rgba($green, 0.8);
 }
 
 .movie-found-image{

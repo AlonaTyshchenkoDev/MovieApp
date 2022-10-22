@@ -8,7 +8,6 @@ export interface ISerialsState {
   data: IMovie[],
   isError: string,
   isFetching: boolean,
-  amount: number
 }
 
 export const initialState: ISerialsState = {
@@ -16,7 +15,6 @@ export const initialState: ISerialsState = {
   data: [],
   isError: '',
   isFetching: true,
-  amount: 0
 }
 
 export const serialsReducer = (state = initialState, action: SerialsActions) => {
@@ -31,7 +29,6 @@ export const serialsReducer = (state = initialState, action: SerialsActions) => 
         ...state,
         page: action.payload.page,
         data: action.payload.data,
-        amount: action.payload.amount,
         isFetching: false
       };
     case ESerialsActionsType.loadSerialsFailed:

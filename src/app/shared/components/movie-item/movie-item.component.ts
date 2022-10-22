@@ -2,12 +2,10 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 import { IExtendedMovie, IMovie } from '../../interfaces';
 import { MovieService } from '../../../services/movie.service';
-import { IState } from '../../../reducers';
-import { Store } from '@ngrx/store';
-import { AddToWatchListAction } from '../../../reducers/library/library.action';
-import { Subject, takeUntil } from 'rxjs';
+import { async, map, Subject, switchMap, takeUntil } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { EListType } from '../../enums';
+import { StoreService } from '../../../services/store.service';
+import { EListType, EMediaType } from '../../enums';
 
 @Component({
   selector: 'app-movie-item',
@@ -16,10 +14,12 @@ import { EListType } from '../../enums';
 })
 export class MovieItemComponent implements OnInit, OnDestroy{
 
-  public destroy$: Subject<void> = new Subject<void>()
+  public destroy$: Subject<void> = new Subject<void>();
+  public movie: IExtendedMovie;
+
   constructor(private movieService:MovieService,
-              private store: Store<IState>,
-              private route: ActivatedRoute
+              private storeService: StoreService,
+              private route: ActivatedRoute,
   ) {
   }
   @Input() movieData: IMovie;
@@ -37,28 +37,27 @@ export class MovieItemComponent implements OnInit, OnDestroy{
 
   checkParams(): void {
    this.pageType = this.route.snapshot.url[0].path;
-   console.log(this.pageType)
   }
 
-  addToWatchList(id: number) {
-    switch (this.pageType) {
+  addToWatchList(pageType: string, id: number) {
+    switch (pageType) {
       case EListType.Movies:
-      this.movieService.getMovieById(id)
-        .pipe(
-          takeUntil(this.destroy$))
-        .subscribe((movie) => {
-          this.store.dispatch(new AddToWatchListAction(movie))
-        });
+        this.movieService.getMovieById(id)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: (movie) => {
+            this.storeService.addOrRemoveMovieToWatchlist(movie, id, true);
+          }
+        })
       return;
       case EListType.Serials:
-      this.movieService.getSerialById(id)
-        .pipe(
-          takeUntil(this.destroy$)
-        )
-        .subscribe((serial) => {
-          console.log(serial)
-          this.store.dispatch(new AddToWatchListAction(serial))
-        });
+        this.movieService.getSerialById(id)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: (serial) => {
+              this.storeService.addOrRemoveSerialToWatchlist(serial, id, true)
+            }
+          })
       return;
     }
   }
