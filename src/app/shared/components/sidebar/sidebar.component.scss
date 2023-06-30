@@ -1,0 +1,48 @@
+@import "src/styles/colors";
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 1rem;
+
+  a{
+    width: 100%;
+    color: rgb($white, 1);
+    text-decoration: none;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    cursor: pointer;
+
+      &:focus{
+        border-right: rgb($green, 0.8);
+      }
+    }
+}
+
+:host ::ng-deep {
+  .p-menu .p-menuitem{
+    margin-bottom: 20px!important;
+  }
+
+  .p-tabmenu-nav{
+    flex-direction: column!important;
+}
+  .p-tabmenu .p-tabmenu-nav {
+    border: none!important;
+}
+
+  .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link{
+    border: none!important;
+  }
+
+  .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+    border-color: #00B9AE;
+    color: rgba($green,1);
+  }
+
+  .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
+    border-color: rgba($green,1);
+    color: rgba($green, 1);
+  }
+}

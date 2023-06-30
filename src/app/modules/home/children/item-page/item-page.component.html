@@ -1,0 +1,20 @@
+<div class="movie container" *ngIf="movieData">
+  <div class="movie-poster" imgLoader>
+    <img src="https://image.tmdb.org/t/p/original/{{movieData.backdrop_path}}" class="movie-poster-img">
+      <p class="movie-title">{{movieData.title}}</p>
+  </div>
+  <div class="movie-content">
+    <div class="movie-img">
+      <img src="https://image.tmdb.org/t/p/original/{{movieData.poster_path}}">
+    </div>
+    <div class="movie-content-description">
+      <p class="tagline">{{movieData.tagline}}</p>
+      <p class="overview">{{movieData.overview}}</p>
+      <p class="description-white">Release Date</p>
+      <p class="description-data">{{movieData.release_date}}</p>
+      <p class="description-white">Genres</p>
+      <p class="description-data genres" *ngFor="let genre of movieData.genres">{{genre.name}}</p>
+    </div>
+  </div>
+</div>
+

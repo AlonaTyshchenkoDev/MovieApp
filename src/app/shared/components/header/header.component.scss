@@ -1,0 +1,32 @@
+@import "src/styles/colors";
+
+.header{
+
+  &-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.header-menu{
+  width: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-weight: bold;
+
+  p:hover{
+    color: rgba($green, 0.8);
+  }
+}
+
+.header-nav-btn:hover{
+  cursor: pointer;
+  color: rgba($green, 0.8);
+}
+
+.movie-found-image{
+  width: 40px;
+}

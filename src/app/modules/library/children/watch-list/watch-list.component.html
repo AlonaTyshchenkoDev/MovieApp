@@ -1,0 +1,6 @@
+<div class="container">
+  <p-selectButton [options]="options" [(ngModel)]="checkedOption" optionLabel="label" optionValue="value"
+                  (onChange)="navigate(checkedOption)">
+  </p-selectButton>
+  <app-list [isWatchlist]="true"></app-list>
+</div>
